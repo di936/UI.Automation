@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0FA785FA-95BA-47FE-873B-E130E3D430AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UIA.Framework</RootNamespace>
+    <AssemblyName>UIA.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationClientsideProviders" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>App.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Application\BaseApplication.cs" />
+    <Compile Include="Elements\Button.cs" />
+    <Compile Include="Elements\Calendar.cs" />
+    <Compile Include="Elements\CheckBox.cs" />
+    <Compile Include="Elements\ComboBox.cs" />
+    <Compile Include="Elements\Custom.cs" />
+    <Compile Include="Elements\DataGrid.cs" />
+    <Compile Include="Elements\DataItem.cs" />
+    <Compile Include="Elements\Document.cs" />
+    <Compile Include="Elements\Edit.cs" />
+    <Compile Include="Elements\ElementNotFoundException.cs" />
+    <Compile Include="Elements\Group.cs" />
+    <Compile Include="Elements\Header.cs" />
+    <Compile Include="Elements\HeaderItem.cs" />
+    <Compile Include="Elements\HyperLink.cs" />
+    <Compile Include="Elements\Image.cs" />
+    <Compile Include="Elements\List.cs" />
+    <Compile Include="Elements\ListItem.cs" />
+    <Compile Include="Elements\Menu.cs" />
+    <Compile Include="Elements\MenuItem.cs" />
+    <Compile Include="Elements\Pane.cs" />
+    <Compile Include="Elements\ProgressBar.cs" />
+    <Compile Include="Elements\RadioButton.cs" />
+    <Compile Include="Elements\ScrollBar.cs" />
+    <Compile Include="Elements\Separator.cs" />
+    <Compile Include="Elements\Slider.cs" />
+    <Compile Include="Elements\Spinner.cs" />
+    <Compile Include="Elements\SplitButton.cs" />
+    <Compile Include="Elements\StatusBar.cs" />
+    <Compile Include="Elements\Tab.cs" />
+    <Compile Include="Elements\TabItem.cs" />
+    <Compile Include="Elements\Table.cs" />
+    <Compile Include="Elements\Text.cs" />
+    <Compile Include="Elements\Thumb.cs" />
+    <Compile Include="Elements\TitleBar.cs" />
+    <Compile Include="Elements\ToolBar.cs" />
+    <Compile Include="Elements\ToolTip.cs" />
+    <Compile Include="Elements\Tree.cs" />
+    <Compile Include="Elements\TreeItem.cs" />
+    <Compile Include="Elements\Window.cs" />
+    <Compile Include="Elements\Element.cs" />
+    <Compile Include="Elements\IElement.cs" />
+    <Compile Include="Elements\Mappings\ControlTypeDictionary.cs" />
+    <Compile Include="Elements\MenuBar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Viewers\SearchConditions\IdCondition.cs" />
+    <Compile Include="Viewers\SearchConditions\NameCondition.cs" />
+    <Compile Include="Viewers\TreeViewer.cs" />
+    <Compile Include="Viewers\ViewerMode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>App.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
