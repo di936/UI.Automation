@@ -6,8 +6,6 @@ namespace UIA.Framework.Application
 {
     public class BaseApplication
     {
-        public bool Active => Viewer.
-
         protected TreeViewer Viewer;
         public BaseApplication(Process process)
         {

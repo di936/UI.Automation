@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Threading;
 using System.Windows.Automation;
+using UIA.Framework.Elements;
+using UIA.Framework.Viewers;
 
 namespace UIA.TestRunner
 {
