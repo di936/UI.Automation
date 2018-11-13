@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +52,14 @@
       <DependentUpon>App.settings</DependentUpon>
     </Compile>
     <Compile Include="Application\BaseApplication.cs" />
+    <Compile Include="Devices\Commands\KeyboardCommands.cs" />
+    <Compile Include="Devices\Commands\VirtualKeys.cs" />
+    <Compile Include="Devices\Commands\MouseCommands.cs" />
+    <Compile Include="Devices\Inputs\Input.cs" />
+    <Compile Include="Devices\Inputs\Input64.cs" />
+    <Compile Include="Devices\Inputs\MouseCursor.cs" />
+    <Compile Include="Devices\Inputs\WindowPlacement.cs" />
+    <Compile Include="Devices\Mouse.cs" />
     <Compile Include="Elements\Button.cs" />
     <Compile Include="Elements\Calendar.cs" />
     <Compile Include="Elements\CheckBox.cs" />
@@ -93,6 +103,7 @@
     <Compile Include="Elements\IElement.cs" />
     <Compile Include="Elements\Mappings\ControlTypeDictionary.cs" />
     <Compile Include="Elements\MenuBar.cs" />
+    <Compile Include="Helpers\Wait.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Viewers\SearchConditions\IdCondition.cs" />
     <Compile Include="Viewers\SearchConditions\NameCondition.cs" />
