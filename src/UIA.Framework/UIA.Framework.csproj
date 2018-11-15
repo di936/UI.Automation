@@ -55,10 +55,7 @@
     <Compile Include="Devices\Commands\KeyboardCommands.cs" />
     <Compile Include="Devices\Commands\VirtualKeys.cs" />
     <Compile Include="Devices\Commands\MouseCommands.cs" />
-    <Compile Include="Devices\Inputs\Input.cs" />
-    <Compile Include="Devices\Inputs\Input64.cs" />
     <Compile Include="Devices\Inputs\MouseCursor.cs" />
-    <Compile Include="Devices\Inputs\WindowPlacement.cs" />
     <Compile Include="Devices\Mouse.cs" />
     <Compile Include="Elements\Button.cs" />
     <Compile Include="Elements\Calendar.cs" />

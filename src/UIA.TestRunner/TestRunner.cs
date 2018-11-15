@@ -12,7 +12,7 @@ namespace UIA.TestRunner
     {
         public static void Main(string[] args)
         {
-            var notepad = @"D:\TM\bug.txt";
+            var notepad = @"";
 
             var processInfo = new ProcessStartInfo(notepad);
             var process = new Process
@@ -21,11 +21,13 @@ namespace UIA.TestRunner
             };
 
             process.Start();
+
             Thread.Sleep(1000);
 
             var app = new BaseApplication(process);
 
-            new TreeViewer(AutomationElement.FromHandle(process.MainWindowHandle)).FindByName<Button>("Close").Invoke();
+            var name = "Close";
+            app.FindByName<Button>(name).Invoke();
         }
     }
 }

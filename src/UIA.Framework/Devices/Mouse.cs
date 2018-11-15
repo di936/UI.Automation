@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows.Forms;
 using UIA.Framework.Devices.Commands;
 using UIA.Framework.Devices.Inputs;
+using UIA.Framework.Helpers;
 
 namespace UIA.Framework.Devices
 {
@@ -12,48 +13,58 @@ namespace UIA.Framework.Devices
     {
         private static Point screen = new Point(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
-        [DllImport("user32.dll", EntryPoint = "mouse_event")]
-        private static extern void MouseEvent(uint flags, int x, int y, int data, ulong extraInfo);
+        [StructLayout(LayoutKind.Sequential)]
+        public struct CursorInfo
+        {
+            public uint size;
+            public uint flags;
+            public IntPtr handle;
+            public Point point;
 
-        [DllImport("user32.dll", EntryPoint = "CreateCursor")]
-        private static extern void CreateCursor(IntPtr hInst, int xHotSpot, int yHotSpot, int nWidth, int nHeight, byte[] pvANDPlane, byte[] pvXORPlane);
+            public static CursorInfo New()
+            {
+                return new CursorInfo { size = (uint)Marshal.SizeOf(typeof(CursorInfo)) };
+            }
+        }
+
+        enum SystemMetric
+        {
+            SM_CXSCREEN = 0,
+            SM_CYSCREEN = 1,
+        }
 
         [DllImport("user32.dll")]
         static extern bool GetCursorInfo(ref CursorInfo cursorInfo);
 
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll", EntryPoint = "mouse_event")]
+        static extern void MouseEvent(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
 
+        [DllImport("user32.dll")]
         static extern bool GetCursorPos(ref System.Drawing.Point cursorInfo);
 
         [DllImport("user32.dll", EntryPoint = "SetCursorPos")]
-        private static extern void SetCursorPos(int x, int y);
+        private static extern bool SetCursorPos(int x, int y);
 
-        [DllImport("user32", EntryPoint = "SendInput")]
-        static extern int SendInput(uint numberOfInputs, ref Input input, int structSize);
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern int GetLastError();
 
-        [DllImport("user32", EntryPoint = "SendInput")]
-        static extern int SendInput64(int numberOfInputs, ref Input64 input, int structSize);
+        [DllImport("user32.dll")]
+        static extern int GetSystemMetrics(SystemMetric smIndex);
 
-        public static MouseCursor Cursor
+        static int CalculateAbsoluteCoordinateX(int x)
         {
-            get
-            {
-                CursorInfo cursorInfo = CursorInfo.New();
-                GetCursorInfo(ref cursorInfo);
-                int i = cursorInfo.handle.ToInt32();
-                return new MouseCursor(i);
-            }
+            return (x * 65536) / GetSystemMetrics(SystemMetric.SM_CXSCREEN);
+        }
+
+        static int CalculateAbsoluteCoordinateY(int y)
+        {
+            return (y * 65536) / GetSystemMetrics(SystemMetric.SM_CYSCREEN);
         }
 
         public static void Click(double x, double y)
         {
-            SetCursorPos((int)x, (int)y);
-            var input = new Input()
-            {
-                mi = new MouseInput((int) MouseCommands.LeftDown | (int) MouseCommands.LeftUp, IntPtr.Zero)
-            };
-
-            SendInput(1, ref input, Marshal.SizeOf(typeof(Input)));
+            var action = (int)MouseCommands.Absolute | (int)MouseCommands.Move | (int)MouseCommands.LeftDown | (int)MouseCommands.LeftUp;
+            MouseEvent(action, CalculateAbsoluteCoordinateX((int)x), CalculateAbsoluteCoordinateY((int)y), 0, 0);
         }
     }
 }

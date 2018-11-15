@@ -8,9 +8,15 @@ namespace UIA.Framework.Devices.Inputs
     public class MouseCursor
     {
         [DllImport("user32.dll")]
-        static extern IntPtr LoadCursor(IntPtr hInstance, IDC_STANDARD_CURSORS lpCursorName);
+        public static extern IntPtr LoadCursor(IntPtr hInstance, IDC_STANDARD_CURSORS lpCursorName);
 
-        enum IDC_STANDARD_CURSORS
+        [DllImport("user32.dll")]
+        public static extern IntPtr CreateCursor(IntPtr hInst, int xHotSpot, int yHotSpot, int nWidth, int nHeight, byte[] pvANDPlane, byte[] pvXORPlane);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetCursor(IntPtr hCursor);
+
+        public enum IDC_STANDARD_CURSORS
         {
             IDC_ARROW = 32512,
             IDC_IBEAM = 32513,

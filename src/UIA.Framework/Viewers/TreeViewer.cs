@@ -14,20 +14,39 @@ namespace UIA.Framework.Viewers
     ///</summary>
     public class TreeViewer
     {
-        private readonly TreeWalker _walker;
         public readonly AutomationElement RawElement;
+
+        public TreeWalker Walker
+        {
+            get
+            {
+                switch (Mode)
+                {
+                    case ViewerMode.RawView:
+                        return TreeWalker.RawViewWalker;
+                    case ViewerMode.ContentView:
+                        return TreeWalker.ContentViewWalker;
+                    case ViewerMode.ControlView:
+                        return TreeWalker.ControlViewWalker;
+                }
+
+                return null;
+            }
+        }
+
+        public ViewerMode Mode;
 
         public TreeScope SearchScope = TreeScope.Element | TreeScope.Children | TreeScope.Descendants;
 
         private AutomationElement FindFirstDescendant(AutomationElement element, Func<AutomationElement, bool> condition)
         {
-            element = _walker.GetFirstChild(element);
+            element = Walker.GetFirstChild(element);
             while (element != null)
             {
                 if (condition(element)) return element;
                 var subElement = FindFirstDescendant(element, condition);
                 if (subElement != null) return subElement;
-                element = _walker.GetNextSibling(element);
+                element = Walker.GetNextSibling(element);
             }
 
             return null;
@@ -35,21 +54,8 @@ namespace UIA.Framework.Viewers
 
         public TreeViewer(AutomationElement element, ViewerMode mode = ViewerMode.RawView)
         {
-            switch (mode)
-            {
-                case ViewerMode.RawView:
-                    _walker = TreeWalker.RawViewWalker;
-                    break;
-                case ViewerMode.ContentView:
-                    _walker = TreeWalker.ContentViewWalker;
-                    break;
-                case ViewerMode.ControlView:
-                    _walker = TreeWalker.ControlViewWalker;
-                    break;
-            }
-            
-            Thread.Sleep(1000);
             RawElement = element;
+            Mode = mode;
         }
 
         ///<summary>
