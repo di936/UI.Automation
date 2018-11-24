@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
 using System.Windows.Automation;
 using UIA.Framework.Elements;
 using UIA.Framework.Elements.Mappings;
-using UIA.Framework.Viewers.SearchConditions;
 
 namespace UIA.Framework.Viewers
 {

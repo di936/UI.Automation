@@ -3,7 +3,8 @@
 namespace UIA.Framework.Elements
 {
     public class List : Element
-    {public List(AutomationElement element) : base(element)
+    {
+        public List(AutomationElement element) : base(element)
         {
 
         }

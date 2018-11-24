@@ -4,5 +4,6 @@
     {
         public const int Action = 100;
         public const int Device = 100;
+        public const int Search = 500;
     }
 }
