@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IMenuBar : IExpandCollapse, IDock, ITransform
+    interface IMenuBar : IElement, IExpandCollapse, IDock, ITransform
     {
 
     }

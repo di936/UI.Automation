@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IHeaderItem : ITransform, IInvoke
+    interface IHeaderItem : IElement, ITransform, IInvoke
     {
 
     }

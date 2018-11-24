@@ -52,9 +52,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\UIA.Framework\UIA.Framework.csproj">
       <Project>{0fa785fa-95ba-47fe-873b-e130e3d430ab}</Project>
       <Name>UIA.Framework</Name>

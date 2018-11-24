@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IProgressBar : IValue, IRangeValue
+    interface IProgressBar : IElement, IValue, IRangeValue
     {
 
     }

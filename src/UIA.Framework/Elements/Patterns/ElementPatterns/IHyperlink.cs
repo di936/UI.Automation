@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IHyperlink : IInvoke, IValue
+    interface IHyperlink : IElement, IInvoke, IValue
     {
     }
 }

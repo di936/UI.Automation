@@ -1,6 +1,7 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ICustom : IElement
+    interface ITitleBar : IElement
     {
+
     }
 }

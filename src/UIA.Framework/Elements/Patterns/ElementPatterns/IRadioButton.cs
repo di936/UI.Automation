@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IRadioButton : ISelectionItem, IToggle
+    interface IRadioButton : IElement, ISelectionItem, IToggle
     {
 
     }

@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IEdit : IText, IValue, IRangeValue
+    interface IEdit : IElement, IText, IValue, IRangeValue
     {
 
     }

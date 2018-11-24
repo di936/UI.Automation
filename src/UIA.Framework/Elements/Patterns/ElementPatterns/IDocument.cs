@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IDocument : IScroll, IText, IValue
+    interface IDocument : IElement, IScroll, ControlPatterns.IText, IValue
     {
     }
 }

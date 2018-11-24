@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Threading;
 using System.Windows.Forms;
 using UIA.Framework.Devices.Commands;
-using UIA.Framework.Devices.Inputs;
-using UIA.Framework.Helpers;
 
 namespace UIA.Framework.Devices
 {

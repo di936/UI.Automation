@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IListControl : ISelection, IScroll, IGrid, IMultipleView, ITable
+    interface IListControl : IElement, ISelection, IScroll, IGrid, IMultipleView, ControlPatterns.ITable
     {
 
     }

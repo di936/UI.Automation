@@ -1,9 +1,9 @@
 ﻿using System.Windows.Automation;
 using UIA.Framework.Viewers;
 
-namespace UIA.Framework.Elements
+namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IElement : IFinder
+    interface IElement
     {
         string Name { get; }
         string Id { get; }

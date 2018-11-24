@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IComboBox : IExpandCollapse, ISelection, IValue, IScroll
+    interface IComboBox : IElement, IExpandCollapse, ISelection, IValue, IScroll
     {
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Automation;
-using System.Windows.Automation.Provider;
 using System.Windows.Automation.Text;
 using UIA.Framework.Configuration;
 using UIA.Framework.Elements.Patterns.ElementPatterns;

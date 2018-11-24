@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ISlider : ISelection, IRangeValue, IValue
+    interface ISlider : IElement, ISelection, IRangeValue, IValue
     {
 
     }

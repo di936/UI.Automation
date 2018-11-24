@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IPane : ITransform, ControlPatterns.IWindow, IDock, IScroll
+    interface IPane : IElement, ITransform, ControlPatterns.IWindow, IDock, IScroll
     {
 
     }

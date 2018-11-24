@@ -48,11 +48,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>App.settings</DependentUpon>
-    </Compile>
     <Compile Include="Application\Application.cs" />
     <Compile Include="Configuration\ActionHandler.cs" />
     <Compile Include="Configuration\Timeouts.cs" />
@@ -132,6 +127,18 @@
     <Compile Include="Elements\Patterns\ElementPatterns\ISlider.cs" />
     <Compile Include="Elements\Patterns\ElementPatterns\ISpinner.cs" />
     <Compile Include="Elements\Patterns\ElementPatterns\ISplitButton.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\IStatusBar.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\ITabControl.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\ITabItem.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\ITable.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\IText.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\IThumb.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\ITitleBar.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\IToolBar.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\IToolTip.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\ITree.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\ITreeItem.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\IWindow.cs" />
     <Compile Include="Elements\ProgressBar.cs" />
     <Compile Include="Elements\RadioButton.cs" />
     <Compile Include="Elements\ScrollBar.cs" />
@@ -152,7 +159,7 @@
     <Compile Include="Elements\TreeItem.cs" />
     <Compile Include="Elements\Window.cs" />
     <Compile Include="Elements\Element.cs" />
-    <Compile Include="Elements\IElement.cs" />
+    <Compile Include="Elements\Patterns\ElementPatterns\IElement.cs" />
     <Compile Include="Elements\Mappings\ControlTypeDictionary.cs" />
     <Compile Include="Elements\MenuBar.cs" />
     <Compile Include="Helpers\Wait.cs" />
@@ -162,12 +169,6 @@
     <Compile Include="Viewers\SearchConditions\NameCondition.cs" />
     <Compile Include="Viewers\TreeViewer.cs" />
     <Compile Include="Viewers\ViewerMode.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>App.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
