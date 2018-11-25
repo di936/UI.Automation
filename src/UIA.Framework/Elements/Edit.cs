@@ -1,4 +1,5 @@
 ﻿using System.Windows.Automation;
+using UIA.Framework.Elements.Patterns.ElementPatterns;
 
 namespace UIA.Framework.Elements
 {

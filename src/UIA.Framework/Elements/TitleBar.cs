@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements
 {
-    internal class TitleBar : Element
+    public class TitleBar : Element
     {
         public TitleBar(AutomationElement element) : base(element)
         {

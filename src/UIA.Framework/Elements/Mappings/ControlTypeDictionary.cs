@@ -5,7 +5,7 @@ using System.Windows.Automation;
 
 namespace UIA.Framework.Elements.Mappings
 {
-    internal static class ControlTypeDictionary
+    public static class ControlTypeDictionary
     {
         private static readonly Dictionary<Type, ControlType> _types = new Dictionary<Type, ControlType>()
         {
