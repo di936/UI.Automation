@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IGridItem
+    public interface IGridItem
     {
         int Column { get; }
         int ColumnSpan { get; }

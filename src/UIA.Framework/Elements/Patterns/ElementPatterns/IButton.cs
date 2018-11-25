@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IButton : IElement, IInvoke, IToggle, IExpandCollapse
+    public interface IButton : IElement, IInvoke, IToggle, IExpandCollapse
     {
 
     }

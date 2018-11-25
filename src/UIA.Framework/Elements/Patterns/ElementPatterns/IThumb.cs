@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IThumb : IElement, ITransform
+    public interface IThumb : IElement, ITransform
     {
 
     }

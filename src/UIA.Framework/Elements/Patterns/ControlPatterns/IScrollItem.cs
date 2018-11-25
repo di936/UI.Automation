@@ -1,6 +1,6 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IScrollItem
+    public interface IScrollItem
     {
         void ScrollIntoView();
     }

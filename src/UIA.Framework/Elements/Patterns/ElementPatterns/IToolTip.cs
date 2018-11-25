@@ -1,6 +1,6 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IToolTip : IElement, ControlPatterns.IWindow, ControlPatterns.IText
+    public interface IToolTip : IElement, ControlPatterns.IWindow, ControlPatterns.IText
     {
 
     }

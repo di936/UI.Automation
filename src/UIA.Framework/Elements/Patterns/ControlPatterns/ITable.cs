@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface ITable
+    public interface ITable
     {
         RowOrColumnMajor RowOrColumnMajor { get; }
         AutomationElement[] GetColumnHeaders();

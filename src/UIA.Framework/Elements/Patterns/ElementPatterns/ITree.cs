@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ITree : IElement, ISelection, IScroll
+    public interface ITree : IElement, ISelection, IScroll
     {
 
     }

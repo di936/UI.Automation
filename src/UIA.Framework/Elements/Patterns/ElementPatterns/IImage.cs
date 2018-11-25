@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IImage : IElement, IGridItem, ITableItem, IInvoke, ISelectionItem
+    public interface IImage : IElement, IGridItem, ITableItem, IInvoke, ISelectionItem
     {
 
     }

@@ -4,7 +4,7 @@ using System.Windows.Automation.Text;
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IText
+    public interface IText
     {
         TextPatternRange DocumentRange { get; }
         SupportedTextSelection SupportedTextSelection { get; }

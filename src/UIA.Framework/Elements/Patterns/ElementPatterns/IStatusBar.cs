@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IStatusBar : IElement, IGrid
+    public interface IStatusBar : IElement, IGrid
     {
     }
 }

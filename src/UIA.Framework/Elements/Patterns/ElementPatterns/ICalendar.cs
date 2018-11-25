@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ICalendar : IElement, IGrid, IScroll, ISelection, ControlPatterns.ITable, IValue
+    public interface ICalendar : IElement, IGrid, IScroll, ISelection, ControlPatterns.ITable, IValue
     {
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IValue
+    public interface IValue
     {
         bool IsReadOnly { get; }
         string Value { get; }

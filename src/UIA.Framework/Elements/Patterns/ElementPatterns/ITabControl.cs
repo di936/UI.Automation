@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ITabControl : IElement, ISelection, IScroll
+    public interface ITabControl : IElement, ISelection, IScroll
     {
 
     }

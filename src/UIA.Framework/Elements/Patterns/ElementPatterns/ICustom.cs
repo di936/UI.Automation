@@ -1,6 +1,6 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ICustom : IElement
+    public interface ICustom : IElement
     {
     }
 }

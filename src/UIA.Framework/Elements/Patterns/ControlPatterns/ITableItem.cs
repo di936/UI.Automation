@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface ITableItem
+    public interface ITableItem
     {
         AutomationElement[] GetColumnHeaderItems();
         AutomationElement[] GetRowHeaderItems();

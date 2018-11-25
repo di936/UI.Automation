@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IExpandCollapse
+    public interface IExpandCollapse
     {
         ExpandCollapseState ExpandCollapseState { get; }
         void Expand();

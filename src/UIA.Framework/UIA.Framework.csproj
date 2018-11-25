@@ -49,10 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\Application.cs" />
+    <Compile Include="Application\IApplication.cs" />
     <Compile Include="Configuration\ActionHandler.cs" />
     <Compile Include="Configuration\Timeouts.cs" />
     <Compile Include="Devices\Keyboard.cs" />
-    <Compile Include="Devices\Cursor.cs" />
     <Compile Include="Devices\Mouse.cs" />
     <Compile Include="Elements\Attributes\DependsAttribute.cs" />
     <Compile Include="Elements\Attributes\NeverAttribute.cs" />

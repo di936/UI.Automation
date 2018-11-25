@@ -4,7 +4,7 @@ using UIA.Framework.Elements.Patterns.ElementPatterns;
 
 namespace UIA.Framework.Elements
 {
-    internal class MenuItem : Element, IMenuItem
+    public class MenuItem : Element, IMenuItem
     {
         public ExpandCollapseState ExpandCollapseState => ((ExpandCollapsePattern)RawElement.GetCurrentPattern(ExpandCollapsePattern.Pattern)).Current.ExpandCollapseState;
 

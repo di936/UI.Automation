@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Helpers
 {
-    internal static class Wait
+    public static class Wait
     {
         public static void Milliseconds(int ms)
         {

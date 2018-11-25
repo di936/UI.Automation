@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Automation;
+using UIA.Framework.Configuration;
 using UIA.Framework.Elements;
 using UIA.Framework.Elements.Mappings;
+using UIA.Framework.Helpers;
 
 namespace UIA.Framework.Viewers
 {
@@ -55,11 +57,18 @@ namespace UIA.Framework.Viewers
             Mode = mode;
         }
 
+        public TreeViewer(IntPtr handle, ViewerMode mode = ViewerMode.RawView)
+        {
+            RootElement = AutomationElement.FromHandle(handle);
+            Mode = mode;
+        }
+
         ///<summary>
         /// Find first element
         ///</summary>
         public T Find<T>()
         {
+            Wait.Milliseconds(Timeouts.Search);
             var condition = new PropertyCondition(AutomationElement.ControlTypeProperty, ControlTypeDictionary.GetControlType<T>());
             var element = RootElement.FindFirst(SearchScope, condition);
             return element != null ? (T)Activator.CreateInstance(typeof(T), element) : throw new ElementNotFoundException($"\"{typeof(T).Name}\" not found");
@@ -70,6 +79,7 @@ namespace UIA.Framework.Viewers
         ///</summary>
         public T FindById<T>(string id)
         {
+            Wait.Milliseconds(Timeouts.Search);
             var condition = new AndCondition(
                 new PropertyCondition(AutomationElement.ControlTypeProperty, ControlTypeDictionary.GetControlType<T>()),
                 new PropertyCondition(AutomationElement.AutomationIdProperty, id)
@@ -84,6 +94,7 @@ namespace UIA.Framework.Viewers
         ///</summary>
         public T FindByName<T>(string name)
         {
+            Wait.Milliseconds(Timeouts.Search);
             AutomationElement automationElement = RootElement;
             var result = FindFirstDescendant(automationElement, 
                 element => element.Current.ControlType.Equals(ControlTypeDictionary.GetControlType<T>()) && element.Current.Name.Contains(name));
@@ -95,6 +106,7 @@ namespace UIA.Framework.Viewers
         ///</summary>
         public List<T> FindAll<T>()
         {
+            Wait.Milliseconds(Timeouts.Search);
             var condition = new PropertyCondition(AutomationElement.ControlTypeProperty, ControlTypeDictionary.GetControlType<T>());
             var collection = RootElement.FindAll(SearchScope, condition);
             List<T> elements = new List<T>();
@@ -106,8 +118,12 @@ namespace UIA.Framework.Viewers
             return elements.Count != 0 ? elements : throw new ElementNotFoundException($"\"{typeof(T).Name}\" not found");
         }
 
+        ///<summary>
+        /// Find element by window handle
+        ///</summary>
         public T FindByWindowHandle<T>(int handle)
         {
+            Wait.Milliseconds(Timeouts.Search);
             var condition = new AndCondition(
                 new PropertyCondition(AutomationElement.ControlTypeProperty, ControlTypeDictionary.GetControlType<T>()),
                 new PropertyCondition(AutomationElement.NativeWindowHandleProperty, handle)

@@ -2,7 +2,8 @@
 
 namespace UIA.Framework.Elements.Attributes
 {
-    public class SupportedAttribute : Attribute
+    internal class SupportedAttribute : Attribute
     {
+
     }
 }

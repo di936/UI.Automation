@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface ISelectionItem
+    public interface ISelectionItem
     {
         bool IsSelected { get; }
         AutomationElement SelectionContainer { get; }

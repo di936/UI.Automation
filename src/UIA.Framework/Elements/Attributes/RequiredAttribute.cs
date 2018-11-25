@@ -2,7 +2,8 @@
 
 namespace UIA.Framework.Elements.Attributes
 {
-    public class RequiredAttribute : Attribute
+    internal class RequiredAttribute : Attribute
     {
+
     }
 }

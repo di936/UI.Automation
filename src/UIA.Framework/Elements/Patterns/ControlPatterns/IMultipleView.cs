@@ -1,6 +1,6 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IMultipleView
+    public interface IMultipleView
     {
         int CurrentView { get; }
         int[] GetSupportedViews();

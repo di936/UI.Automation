@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IMenuItem : IElement, IExpandCollapse, IInvoke, IToggle, ISelectionItem
+    public interface IMenuItem : IElement, IExpandCollapse, IInvoke, IToggle, ISelectionItem
     {
 
     }

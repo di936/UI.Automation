@@ -3,7 +3,7 @@ using System.Windows.Automation.Provider;
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface ISelection
+    public interface ISelection
     {
         bool CanSelectMultiple { get; }
         bool IsSelectionRequired { get; }

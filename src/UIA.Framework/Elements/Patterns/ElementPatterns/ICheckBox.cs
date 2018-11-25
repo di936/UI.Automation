@@ -2,7 +2,8 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ICheckBox : IElement, IToggle
+    public interface ICheckBox : IElement, IToggle
     {
+
     }
 }

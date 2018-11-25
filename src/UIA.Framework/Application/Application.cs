@@ -8,30 +8,30 @@ using UIA.Framework.Viewers;
 
 namespace UIA.Framework.Application
 {
-    public class Application : IFinder
+    public class Application : IApplication
     {
         protected TreeViewer Viewer;
-        public Application(string name)
+
+        public Window CurrentWindow { get; set; } 
+
+        public Application(string name, ViewerMode mode = ViewerMode.RawView)
         {
-            var window = new TreeViewer(AutomationElement.RootElement).FindByName<Window>(name);
-            Viewer = new TreeViewer(AutomationElement.FromHandle((IntPtr)window.WindowHandle));
+            CurrentWindow = new TreeViewer(AutomationElement.RootElement).FindByName<Window>(name);
+            Viewer = new TreeViewer(AutomationElement.FromHandle((IntPtr)CurrentWindow.WindowHandle), mode);
         }
 
-        public Application(Process process)
+        public Application(Process process, ViewerMode mode = ViewerMode.RawView)
         {
-            Viewer = new TreeViewer(AutomationElement.FromHandle(process.MainWindowHandle));
-        }
-
-        public Application(Process process, ViewerMode mode)
-        {
+            CurrentWindow = new Window(AutomationElement.FromHandle(process.MainWindowHandle));
             Viewer = new TreeViewer(AutomationElement.FromHandle(process.MainWindowHandle), mode);
         }
 
-        public T Find<T>() => ActionHandler.Perform(() => Viewer.Find<T>());
-        public List<T> FindAll<T>() => ActionHandler.Perform(() => Viewer.FindAll<T>());
-        public T FindByName<T>(string name) => ActionHandler.Perform(() => Viewer.FindByName<T>(name));
-        public T FindById<T>(string id) => ActionHandler.Perform(() => Viewer.FindById<T>(id));
-        public T FindByWindowHandle<T>(int handle) => ActionHandler.Perform(() => Viewer.FindByWindowHandle<T>(handle));
-
+        public T Find<T>() => CurrentWindow.Find<T>();
+        public List<T> FindAll<T>() => CurrentWindow.FindAll<T>();
+        public T FindByName<T>(string name) => CurrentWindow.FindByName<T>(name);
+        public T FindById<T>(string id) => CurrentWindow.FindById<T>(id);
+        public T FindByWindowHandle<T>(int handle) => CurrentWindow.FindByWindowHandle<T>(handle);
+        public void SetCurrentWindow(string windowName) => CurrentWindow = ActionHandler.Perform(() => Viewer.FindByName<Window>(windowName));
+        public void SetDefaultWindow() => CurrentWindow = ActionHandler.Perform(() => new Window(AutomationElement.FromHandle((IntPtr)Viewer.RootElement.Current.NativeWindowHandle)));
     }
 }

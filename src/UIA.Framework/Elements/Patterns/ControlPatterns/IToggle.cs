@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IToggle
+    public interface IToggle
     {
         ToggleState ToggleState { get; }
         void Toggle();

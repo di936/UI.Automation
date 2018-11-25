@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IWindow : IElement, IDock, ITransform, ControlPatterns.IWindow
+    public interface IWindow : IElement, IDock, ITransform, ControlPatterns.IWindow
     {
 
     }

@@ -2,7 +2,8 @@
 
 namespace UIA.Framework.Elements.Attributes
 {
-    public class NeverAttribute : Attribute
+    internal class NeverAttribute : Attribute
     {
+
     }
 }

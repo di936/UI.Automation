@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ISpinner : IElement, ISelection, IRangeValue, IValue
+    public interface ISpinner : IElement, ISelection, IRangeValue, IValue
     {
 
     }

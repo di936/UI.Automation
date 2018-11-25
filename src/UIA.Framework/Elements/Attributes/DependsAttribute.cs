@@ -2,7 +2,8 @@
 
 namespace UIA.Framework.Elements.Attributes
 {
-    public class DependsAttribute : Attribute
+    internal class DependsAttribute : Attribute
     {
+
     }
 }

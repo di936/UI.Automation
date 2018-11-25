@@ -3,7 +3,7 @@ using System.Windows.Automation.Text;
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface ITextRange
+    public interface ITextRange
     {
         void AddToSelection();
         ITextRangeProvider Clone();

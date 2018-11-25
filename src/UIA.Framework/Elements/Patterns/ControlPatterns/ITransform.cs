@@ -1,6 +1,6 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface ITransform
+    public interface ITransform
     {
         bool CanMove { get; }
         bool CanResize { get; }

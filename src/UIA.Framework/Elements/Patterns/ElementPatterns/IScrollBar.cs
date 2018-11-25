@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IScrollBar : IElement, IScroll, IRangeValue
+    public interface IScrollBar : IElement, IScroll, IRangeValue
     {
 
     }

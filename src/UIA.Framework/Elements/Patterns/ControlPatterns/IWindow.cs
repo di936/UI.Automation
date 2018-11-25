@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IWindow
+    public interface IWindow
     {
         WindowInteractionState InteractionState { get; }
         bool IsModal { get; }

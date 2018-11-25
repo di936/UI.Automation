@@ -1,6 +1,6 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IVirtualizedItem
+    public interface IVirtualizedItem
     {
         void Realize();
     }

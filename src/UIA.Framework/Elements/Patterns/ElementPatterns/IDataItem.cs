@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IDataItem : IElement, IExpandCollapse, IGridItem, IScrollItem, ISelectionItem, ITableItem, IToggle, IValue
+    public interface IDataItem : IElement, IExpandCollapse, IGridItem, IScrollItem, ISelectionItem, ITableItem, IToggle, IValue
     {
 
     }

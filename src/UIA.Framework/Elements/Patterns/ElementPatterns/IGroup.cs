@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IGroup : IElement, IExpandCollapse
+    public interface IGroup : IElement, IExpandCollapse
     {
 
     }

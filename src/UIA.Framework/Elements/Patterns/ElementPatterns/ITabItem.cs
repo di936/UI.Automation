@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ITabItem : IElement, ISelection, IInvoke
+    public interface ITabItem : IElement, ISelection, IInvoke
     {
 
     }

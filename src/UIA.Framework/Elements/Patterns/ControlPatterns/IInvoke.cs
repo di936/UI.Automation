@@ -1,6 +1,6 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IInvoke
+    public interface IInvoke
     {
         void Invoke();
     }

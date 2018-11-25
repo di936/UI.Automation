@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ISplitButton : IElement, IInvoke, IExpandCollapse
+    public interface ISplitButton : IElement, IInvoke, IExpandCollapse
     {
     }
 }

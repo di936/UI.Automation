@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface IToolBar : IElement, IExpandCollapse, IDock, ITransform
+    public interface IToolBar : IElement, IExpandCollapse, IDock, ITransform
     {
 
     }

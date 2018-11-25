@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IDock
+    public interface IDock
     {
         DockPosition DockPosition { get; }
         void SetDockPosition(DockPosition dockPosition);

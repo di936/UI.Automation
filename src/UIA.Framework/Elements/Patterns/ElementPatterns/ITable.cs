@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
-    interface ITable : IGrid, IGridItem, ControlPatterns.ITable, ITableItem
+    public interface ITable : IGrid, IGridItem, ControlPatterns.ITable, ITableItem
     {
 
     }

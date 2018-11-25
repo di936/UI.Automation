@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IScroll
+    public interface IScroll
     {
         bool HorizontallyScrollable { get; }
         double HorizontalScrollPercent { get; }

@@ -27,13 +27,15 @@ namespace UIA.Framework.Elements
 
         public ControlType RawType => RawElement.Current.ControlType;
 
-        public System.Windows.Point ClickablePoint => RawElement.GetClickablePoint();
+        public System.Windows.Point ClickablePoint => ActionHandler.Perform(() => RawElement.GetClickablePoint());
 
         public string Name => RawElement.Current.Name;
 
         public string Id => RawElement.Current.AutomationId;
 
         public int WindowHandle => RawElement.Current.NativeWindowHandle;
+
+        public void SetFocus() => ActionHandler.Perform(() => RawElement.SetFocus());
 
         public Element(AutomationElement element)
         {

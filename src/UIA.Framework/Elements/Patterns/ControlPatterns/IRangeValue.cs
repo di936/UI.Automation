@@ -1,6 +1,6 @@
 ﻿namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IRangeValue
+    public interface IRangeValue
     {
         bool RangeIsReadOnly { get; }
         double LargeChange { get; }

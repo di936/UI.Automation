@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Viewers
 {
-    interface IFinder
+    public interface IFinder
     {
         T Find<T>();
         T FindById<T>(string id);

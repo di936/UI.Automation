@@ -2,7 +2,7 @@
 
 namespace UIA.Framework.Elements.Patterns.ControlPatterns
 {
-    interface IGrid
+    public interface IGrid
     {
         int ColumnCount { get; }
         int RowCount { get; }
