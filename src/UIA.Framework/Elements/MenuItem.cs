@@ -19,6 +19,32 @@ namespace UIA.Framework.Elements
             
         }
 
+        //public void InvokeByPath(string[] path)
+        //{
+        //    Expand();
+        //    var element = new TreeViewer().FindByName<Menu>(RawElement.Current.Name).FindByName<MenuItem>(path[0]);
+        //    if (path.Length > 1)
+        //    {
+        //        element.Expand();
+        //        for (var i = 1; i < path.Length; i++)
+        //        {
+        //            element = new TreeViewer(element.RawElement).FindByName<Menu>(path[i - 1]).FindByName<MenuItem>(path[i]);
+        //            if (i == path.Length - 1)
+        //            {
+        //                element.Invoke();
+        //            }
+        //            else
+        //            {
+        //                element.Expand();
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        element.Invoke();
+        //    }
+        //}
+
         public void Collapse()
         {
             ActionHandler.Perform(() => ((ExpandCollapsePattern)RawElement.GetCurrentPattern(ExpandCollapsePattern.Pattern)).Collapse());

@@ -4,6 +4,6 @@ namespace UIA.Framework.Elements.Patterns.ElementPatterns
 {
     public interface IMenuItem : IElement, IExpandCollapse, IInvoke, IToggle, ISelectionItem
     {
-
+        //void InvokeByPath(string[] path);
     }
 }

@@ -163,6 +163,7 @@
     <Compile Include="Helpers\Wait.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Viewers\IFinder.cs" />
+    <Compile Include="Viewers\SearchConditions\ControlTypeCondition.cs" />
     <Compile Include="Viewers\SearchConditions\IdCondition.cs" />
     <Compile Include="Viewers\SearchConditions\NameCondition.cs" />
     <Compile Include="Viewers\TreeViewer.cs" />

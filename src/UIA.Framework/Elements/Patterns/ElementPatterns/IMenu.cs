@@ -2,6 +2,6 @@
 {
     public interface IMenu : IElement
     {
-
+        void InvokeByPath(string[] path);
     }
 }
