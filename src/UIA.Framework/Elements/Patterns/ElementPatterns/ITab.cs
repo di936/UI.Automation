@@ -3,9 +3,9 @@
     using UIA.Framework.Elements.Patterns.ControlPatterns;
 
     /// <summary>
-    /// Group should implement <see cref="IElement"/>, <see cref="IExpandCollapse"/>.
+    /// TabControl should implement <see cref="IElement"/>, <see cref="ISelection"/>, <see cref="IScroll"/>.
     /// </summary>
-    public interface IGroup : IElement, IExpandCollapse
+    public interface ITab : IElement, ISelection, IScroll
     {
     }
 }

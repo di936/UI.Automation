@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace UIA.Framework.Elements.Attributes
+﻿namespace UIA.Framework.Elements.Attributes
 {
+    using System;
+
     internal class NeverAttribute : Attribute
     {
 

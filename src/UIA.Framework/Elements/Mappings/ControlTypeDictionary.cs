@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Automation;
-
-namespace UIA.Framework.Elements.Mappings
+﻿namespace UIA.Framework.Elements.Mappings
 {
-    public static class ControlTypeDictionary
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Automation;
+
+    /// <summary>
+    /// Dictionary that maps UIAutomation <see cref="ControlType"/>s with this framework's <see cref="Element"/> objects.
+    /// </summary>
+    internal static class ControlTypeDictionary
     {
-        private static readonly Dictionary<Type, ControlType> _types = new Dictionary<Type, ControlType>()
+        /// <summary>
+        /// Dictionary with mappings: <see cref="Element"/> objects to <see cref="ControlType"/> objects.
+        /// </summary>
+        private static readonly Dictionary<Type, ControlType> Types = new Dictionary<Type, ControlType>()
         {
             {typeof(Button), ControlType.Button},
             {typeof(Calendar), ControlType.Calendar},
@@ -47,16 +53,27 @@ namespace UIA.Framework.Elements.Mappings
             {typeof(ToolTip), ControlType.ToolTip},
             {typeof(Tree), ControlType.Tree},
             {typeof(TreeItem), ControlType.TreeItem},
-            {typeof(Window), ControlType.Window}
+            {typeof(Window), ControlType.Window},
         };
 
+        /// <summary>
+        /// Maps <typeparamref name="T"/> to <see cref="ControlType"/>.
+        /// </summary>
+        /// <typeparam name="T"><see cref="Element"/> object that should be mapped.</typeparam>
+        /// <returns><see cref="ControlType"/> that is mapping to <typeparamref name="T"/>.</returns>
         public static ControlType GetControlType<T>()
         {
-            return _types.First(pair => pair.Key.IsEquivalentTo(typeof(T))).Value;
+            return Types.First(pair => pair.Key.IsEquivalentTo(typeof(T))).Value;
         }
+
+        /// <summary>
+        /// Maps <see cref="ControlType"/> to <see cref="Element"/>.
+        /// </summary>
+        /// <param name="controlType"><see cref="ControlType"/> object that should be mapped.</param>
+        /// <returns><see cref="Element"/> that is mapping to <paramref name="controlType"/>.</returns>
         public static Type GetType(ControlType controlType)
         {
-            return _types.First(pair => pair.Value.Equals(controlType)).Key;
+            return Types.First(pair => pair.Value.Equals(controlType)).Key;
         }
     }
 }

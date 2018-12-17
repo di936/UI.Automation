@@ -1,37 +1,98 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Windows.Automation;
-using UIA.Framework.Configuration;
-using UIA.Framework.Elements;
-using UIA.Framework.Viewers;
-
-namespace UIA.Framework.Application
+﻿namespace UIA.Framework.Application
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Windows.Automation;
+    using UIA.Framework.Configuration;
+    using UIA.Framework.Elements;
+    using UIA.Framework.Viewers;
+
+    /// <summary>
+    /// Class that represents an application instance with corresponding methods (finders, windows,...).
+    /// </summary>
     public class Application : IApplication
     {
+        /// <summary>
+        /// <see cref="TreeViewer"/> instance for searching <see cref="Element"/> objects using implemented <see cref="IFinder"/> methods.
+        /// </summary>
         protected TreeViewer Viewer;
 
-        public Window CurrentWindow { get; set; } 
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Application"/> class.
+        /// </summary>
+        /// <param name="name">Basically it's application title.</param>
+        /// <param name="mode">Enum ViewerMode for seaching mode switching.</param>
         public Application(string name, ViewerMode mode = ViewerMode.RawView)
         {
-            CurrentWindow = new TreeViewer(AutomationElement.RootElement).FindByName<Window>(name);
-            Viewer = new TreeViewer(AutomationElement.FromHandle((IntPtr)CurrentWindow.WindowHandle), mode);
+            this.CurrentWindow = new TreeViewer(AutomationElement.RootElement).FindByName<Window>(name);
+            this.Viewer = new TreeViewer(AutomationElement.FromHandle((IntPtr)CurrentWindow.WindowHandle), mode);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Application"/> class.
+        /// </summary>
+        /// <param name="process">Process instance of your application.</param>
+        /// <param name="mode">Enum ViewerMode for seaching mode switching.</param>
         public Application(Process process, ViewerMode mode = ViewerMode.RawView)
         {
-            CurrentWindow = new Window(AutomationElement.FromHandle(process.MainWindowHandle));
-            Viewer = new TreeViewer(AutomationElement.FromHandle(process.MainWindowHandle), mode);
+            this.CurrentWindow = new Window(AutomationElement.FromHandle(process.MainWindowHandle));
+            this.Viewer = new TreeViewer(AutomationElement.FromHandle(process.MainWindowHandle), mode);
         }
 
-        public T Find<T>() => CurrentWindow.Find<T>();
-        public List<T> FindAll<T>() => CurrentWindow.FindAll<T>();
-        public T FindByName<T>(string name) => CurrentWindow.FindByName<T>(name);
-        public T FindById<T>(string id) => CurrentWindow.FindById<T>(id);
-        public T FindByWindowHandle<T>(int handle) => CurrentWindow.FindByWindowHandle<T>(handle);
-        public void SetCurrentWindow(string windowName) => CurrentWindow = ActionHandler.Perform(() => Viewer.FindByName<Window>(windowName));
-        public void SetDefaultWindow() => CurrentWindow = ActionHandler.Perform(() => new Window(AutomationElement.FromHandle((IntPtr)Viewer.RootElement.Current.NativeWindowHandle)));
+        /// <summary>
+        /// Gets or sets current <see cref="Window"/> instance where objects are searched.
+        /// </summary>
+        public Window CurrentWindow { get; set; }
+
+        /// <summary>
+        /// Gets <see cref="{T}"/> element in current window.
+        /// </summary>
+        /// <typeparam name="T"><see cref="UIA.Framework.Elements"/> objects.</typeparam>
+        /// <returns>Returns first <typeparamref name="T"/> object in current window.</returns>
+        public T Find<T>() => this.CurrentWindow.Find<T>();
+
+        /// <summary>
+        /// Gets <see cref="List{T}"/> element in current window.
+        /// </summary>
+        /// <typeparam name="T"><see cref="UIA.Framework.Elements"/> objects.</typeparam>
+        /// <returns>Returns all <typeparamref name="T"/> objects in current window.</returns>
+        public List<T> FindAll<T>() => this.CurrentWindow.FindAll<T>();
+
+        /// <summary>
+        /// Gets <see cref="{T}"/> element with <paramref name="name"></paramref> in current window.
+        /// </summary>
+        /// <typeparam name="T"><see cref="UIA.Framework.Elements"/> objects.</typeparam>
+        /// <param name="name">Name of <see cref="{T}"/> element.</param>
+        /// <returns>Returns first <typeparamref name="T"/> object with <paramref name="name"></paramref> in current window.</returns>
+        public T FindByName<T>(string name) => this.CurrentWindow.FindByName<T>(name);
+
+        /// <summary>
+        /// Gets <see cref="{T}"/> element with <paramref name="id"></paramref> in current window.
+        /// </summary>
+        /// <typeparam name="T"><see cref="UIA.Framework.Elements"/> objects.</typeparam>
+        /// <param name="id">AutomationID of <see cref="{T}"/> element.</param>
+        /// <returns>Returns first <typeparamref name="T"/> object with <paramref name="id"></paramref> in current window.</returns>
+        public T FindById<T>(string id) => this.CurrentWindow.FindById<T>(id);
+
+        /// <summary>
+        /// Gets <see cref="{T}"/> element with <paramref name="handle"></paramref> in current window.
+        /// </summary>
+        /// <typeparam name="T"><see cref="UIA.Framework.Elements"/> objects.</typeparam>
+        /// <param name="handle">NativeWindowHandle of <see cref="{T}"/> element.</param>
+        /// <returns>Returns first <typeparamref name="T"/> object with <paramref name="handle"></paramref> in current window.</returns>
+        public T FindByWindowHandle<T>(int handle) => this.CurrentWindow.FindByWindowHandle<T>(handle);
+
+        /// <summary>
+        /// Sets current window.
+        /// </summary>
+        /// <param name="windowName">Window name.</param>
+        public void SetCurrentWindow(string windowName) => this.CurrentWindow = ActionHandler.Perform(() => this.Viewer.FindByName<Window>(windowName));
+
+        /// <summary>
+        /// Returns current window to its default value.
+        /// </summary>
+        /// <param name="windowName">Window name.</param>
+        public void SetDefaultWindow() => this.CurrentWindow = ActionHandler.Perform(() => new Window(AutomationElement.FromHandle((IntPtr)this.Viewer.RootElement.Current.NativeWindowHandle)));
     }
 }
