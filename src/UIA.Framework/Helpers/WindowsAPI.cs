@@ -1,9 +1,12 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Windows;
-
-namespace UIA.Framework.Helpers
+﻿namespace UIA.Framework.Helpers
 {
+    using System;
+    using System.Runtime.InteropServices;
+    using System.Windows;
+
+    /// <summary>
+    /// Standard cursors.
+    /// </summary>
     [Flags]
     internal enum StandardCursors
     {
@@ -25,6 +28,9 @@ namespace UIA.Framework.Helpers
         Help = 32651
     }
 
+    /// <summary>
+    /// Standard mouse commands.
+    /// </summary>
     [Flags]
     internal enum MouseCommands
     {
@@ -43,6 +49,9 @@ namespace UIA.Framework.Helpers
         HWheel = 0x01000
     }
 
+    /// <summary>
+    /// System metrics for coordinates positioning.
+    /// </summary>
     [Flags]
     internal enum SystemMetric
     {
@@ -50,6 +59,9 @@ namespace UIA.Framework.Helpers
         SM_CYScreen = 1,
     }
 
+    /// <summary>
+    /// Standard keyboard commands
+    /// </summary>
     [Flags]
     internal enum KeyboardCommands
     {
@@ -57,6 +69,9 @@ namespace UIA.Framework.Helpers
         KeyUp = 0x0002
     }
 
+    /// <summary>
+    /// Standard keyboard keys.
+    /// </summary>
     [Flags]
     internal enum VirtualKeys
     {
@@ -235,6 +250,9 @@ namespace UIA.Framework.Helpers
         OEM_Clear = 0xFE
     }
 
+    /// <summary>
+    /// Struct for cursor.
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     internal struct CursorInfo
     {
@@ -249,11 +267,24 @@ namespace UIA.Framework.Helpers
         }
     }
 
+    /// <summary>
+    /// External WindowsAPI methods.
+    /// </summary>
     internal static class WindowsAPI
     {
-        public static int CalculateAbsoluteCoordinateX(int x) => ((x * 65536) / GetSystemMetrics(SystemMetric.SM_CXScreen));
+        /// <summary>
+        /// Calculate absolute coordinate X.
+        /// </summary>
+        /// <param name="x">Coordinate X.</param>
+        /// <returns>Absolute coordinate X.</returns>
+        public static int CalculateAbsoluteCoordinateX(int x) => (x * 65536) / GetSystemMetrics(SystemMetric.SM_CXScreen);
 
-        public static int CalculateAbsoluteCoordinateY(int y) => ((y * 65536) / GetSystemMetrics(SystemMetric.SM_CYScreen));
+        /// <summary>
+        /// Calculate absolute coordinate Y.
+        /// </summary>
+        /// <param name="y">Coordinate Y.</param>
+        /// <returns>Absolute coordinate Y.</returns>
+        public static int CalculateAbsoluteCoordinateY(int y) => (y * 65536) / GetSystemMetrics(SystemMetric.SM_CYScreen);
 
         [DllImport("user32.dll", EntryPoint = "mouse_event")]
         public static extern void MouseEvent(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);

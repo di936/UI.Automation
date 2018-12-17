@@ -1,8 +1,8 @@
 ﻿namespace UIA.Framework.Viewers
 {
-    ///<summary>
-    ///Raw, Content, Control enum for <see cref="TreeViewer"/>
-    ///</summary>
+    /// <summary>
+    /// Raw, Content, Control enum for <see cref="TreeViewer"/>
+    /// </summary>
     public enum ViewerMode
     {
         RawView = 0,

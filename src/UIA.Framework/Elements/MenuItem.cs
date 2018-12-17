@@ -1,57 +1,54 @@
-﻿using System.Windows.Automation;
-using UIA.Framework.Configuration;
-using UIA.Framework.Elements.Patterns.ElementPatterns;
-
-namespace UIA.Framework.Elements
+﻿namespace UIA.Framework.Elements
 {
+    using System.Windows.Automation;
+    using UIA.Framework.Configuration;
+    using UIA.Framework.Elements.Patterns.ElementPatterns;
+
+    /// <summary>
+    /// Wrapper for <see cref="AutomationElement"/> with <see cref="ControlType"/> <see cref="ControlType.MenuItem"/>.
+    /// </summary>
     public class MenuItem : Element, IMenuItem
     {
-        public ExpandCollapseState ExpandCollapseState => ((ExpandCollapsePattern)RawElement.GetCurrentPattern(ExpandCollapsePattern.Pattern)).Current.ExpandCollapseState;
-
-        public ToggleState ToggleState => ((TogglePattern)RawElement.GetCurrentPattern(TogglePattern.Pattern)).Current.ToggleState;
-
-        public bool IsSelected => ((SelectionItemPattern)RawElement.GetCurrentPattern(SelectionItemPattern.Pattern)).Current.IsSelected;
-
-        public AutomationElement SelectionContainer => ((SelectionItemPattern)RawElement.GetCurrentPattern(SelectionItemPattern.Pattern)).Current.SelectionContainer;
-
-        public MenuItem(AutomationElement element) : base(element)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MenuItem"/> class.
+        /// </summary>
+        /// <param name="element"><see cref="AutomationElement"/> with <see cref="ControlType"/> <see cref="ControlType.MenuItem"/>.</param>
+        public MenuItem(AutomationElement element)
+            : base(element)
         {
-            
         }
 
-        public void Collapse()
-        {
-            ActionHandler.Perform(() => ((ExpandCollapsePattern)RawElement.GetCurrentPattern(ExpandCollapsePattern.Pattern)).Collapse());
-        }
+        /// <inheritdoc/>
+        public ExpandCollapseState ExpandCollapseState => ((ExpandCollapsePattern)this.GetCurrentPattern(ExpandCollapsePattern.Pattern)).Current.ExpandCollapseState;
 
-        public void Expand()
-        {
-            ActionHandler.Perform(() => ((ExpandCollapsePattern)RawElement.GetCurrentPattern(ExpandCollapsePattern.Pattern)).Expand());
-        }
+        /// <inheritdoc/>
+        public ToggleState ToggleState => ((TogglePattern)this.GetCurrentPattern(TogglePattern.Pattern)).Current.ToggleState;
 
-        public void Invoke()
-        {
-            ActionHandler.Perform(() => ((InvokePattern)RawElement.GetCurrentPattern(InvokePattern.Pattern)).Invoke());
-        }
+        /// <inheritdoc/>
+        public bool IsSelected => ((SelectionItemPattern)this.GetCurrentPattern(SelectionItemPattern.Pattern)).Current.IsSelected;
 
-        public void Toggle()
-        {
-            ActionHandler.Perform(() => ((TogglePattern)RawElement.GetCurrentPattern(TogglePattern.Pattern)).Toggle());
-        }
+        /// <inheritdoc/>
+        public AutomationElement SelectionContainer => ((SelectionItemPattern)this.GetCurrentPattern(SelectionItemPattern.Pattern)).Current.SelectionContainer;
 
-        public void AddToSelection()
-        {
-            ActionHandler.Perform(() => ((SelectionItemPattern)RawElement.GetCurrentPattern(SelectionItemPattern.Pattern)).AddToSelection());
-        }
+        /// <inheritdoc/>
+        public void Collapse() => ActionHandler.Perform(() => ((ExpandCollapsePattern)this.GetCurrentPattern(ExpandCollapsePattern.Pattern)).Collapse());
 
-        public void RemoveFromSelection()
-        {
-            ActionHandler.Perform(() => ((SelectionItemPattern)RawElement.GetCurrentPattern(SelectionItemPattern.Pattern)).RemoveFromSelection());
-        }
+        /// <inheritdoc/>
+        public void Expand() => ActionHandler.Perform(() => ((ExpandCollapsePattern)this.GetCurrentPattern(ExpandCollapsePattern.Pattern)).Expand());
 
-        public void Select()
-        {
-            ActionHandler.Perform(() => ((SelectionItemPattern)RawElement.GetCurrentPattern(SelectionItemPattern.Pattern)).Select());
-        }
+        /// <inheritdoc/>
+        public void Invoke() => ActionHandler.Perform(() => ((InvokePattern)this.GetCurrentPattern(InvokePattern.Pattern)).Invoke());
+
+        /// <inheritdoc/>
+        public void Toggle() => ActionHandler.Perform(() => ((TogglePattern)this.GetCurrentPattern(TogglePattern.Pattern)).Toggle());
+
+        /// <inheritdoc/>
+        public void AddToSelection() => ActionHandler.Perform(() => ((SelectionItemPattern)this.GetCurrentPattern(SelectionItemPattern.Pattern)).AddToSelection());
+
+        /// <inheritdoc/>
+        public void RemoveFromSelection() => ActionHandler.Perform(() => ((SelectionItemPattern)this.GetCurrentPattern(SelectionItemPattern.Pattern)).RemoveFromSelection());
+
+        /// <inheritdoc/>
+        public void Select() => ActionHandler.Perform(() => ((SelectionItemPattern)this.GetCurrentPattern(SelectionItemPattern.Pattern)).Select());
     }
 }

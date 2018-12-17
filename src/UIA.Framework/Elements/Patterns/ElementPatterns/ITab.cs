@@ -5,7 +5,7 @@
     /// <summary>
     /// TabControl should implement <see cref="IElement"/>, <see cref="ISelection"/>, <see cref="IScroll"/>.
     /// </summary>
-    public interface ITabControl : IElement, ISelection, IScroll
+    public interface ITab : IElement, ISelection, IScroll
     {
     }
 }

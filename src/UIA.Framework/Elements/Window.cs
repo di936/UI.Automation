@@ -1,69 +1,72 @@
-﻿using System.Windows.Automation;
-using UIA.Framework.Configuration;
-using UIA.Framework.Elements.Patterns.ElementPatterns;
-
-namespace UIA.Framework.Elements
+﻿namespace UIA.Framework.Elements
 {
+    using System.Windows.Automation;
+    using UIA.Framework.Configuration;
+    using UIA.Framework.Elements.Patterns.ElementPatterns;
+
+    /// <summary>
+    /// Wrapper for <see cref="AutomationElement"/> with <see cref="ControlType"/> <see cref="ControlType.Window"/>.
+    /// </summary>
     public class Window : Element, IWindow
     {
-        public Window(AutomationElement element) : base(element)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Window"/> class.
+        /// </summary>
+        /// <param name="element"><see cref="AutomationElement"/> with <see cref="ControlType"/> <see cref="ControlType.Window"/>.</param>
+        public Window(AutomationElement element)
+            : base(element)
         {
-            
         }
 
-        public DockPosition DockPosition => ((DockPattern)RawElement.GetCurrentPattern(DockPattern.Pattern)).Current.DockPosition;
+        /// <inheritdoc/>
+        public DockPosition DockPosition => ((DockPattern)this.GetCurrentPattern(DockPattern.Pattern)).Current.DockPosition;
 
-        public bool CanMove => ((TransformPattern)RawElement.GetCurrentPattern(TransformPattern.Pattern)).Current.CanMove;
+        /// <inheritdoc/>
+        public bool CanMove => ((TransformPattern)this.GetCurrentPattern(TransformPattern.Pattern)).Current.CanMove;
 
-        public bool CanResize => ((TransformPattern)RawElement.GetCurrentPattern(TransformPattern.Pattern)).Current.CanResize;
+        /// <inheritdoc/>
+        public bool CanResize => ((TransformPattern)this.GetCurrentPattern(TransformPattern.Pattern)).Current.CanResize;
 
-        public bool CanRotate => ((TransformPattern)RawElement.GetCurrentPattern(TransformPattern.Pattern)).Current.CanRotate;
+        /// <inheritdoc/>
+        public bool CanRotate => ((TransformPattern)this.GetCurrentPattern(TransformPattern.Pattern)).Current.CanRotate;
 
-        public WindowInteractionState InteractionState => ((WindowPattern)RawElement.GetCurrentPattern(WindowPattern.Pattern)).Current.WindowInteractionState;
+        /// <inheritdoc/>
+        public WindowInteractionState InteractionState => ((WindowPattern)this.GetCurrentPattern(WindowPattern.Pattern)).Current.WindowInteractionState;
 
-        public bool IsModal => ((WindowPattern)RawElement.GetCurrentPattern(WindowPattern.Pattern)).Current.IsModal;
+        /// <inheritdoc/>
+        public bool IsModal => ((WindowPattern)this.GetCurrentPattern(WindowPattern.Pattern)).Current.IsModal;
 
-        public bool IsTopmost => ((WindowPattern)RawElement.GetCurrentPattern(WindowPattern.Pattern)).Current.IsTopmost;
+        /// <inheritdoc/>
+        public bool IsTopmost => ((WindowPattern)this.GetCurrentPattern(WindowPattern.Pattern)).Current.IsTopmost;
 
-        public bool Maximizable => ((WindowPattern)RawElement.GetCurrentPattern(WindowPattern.Pattern)).Current.CanMaximize;
+        /// <inheritdoc/>
+        public bool Maximizable => ((WindowPattern)this.GetCurrentPattern(WindowPattern.Pattern)).Current.CanMaximize;
 
-        public bool Minimizable => ((WindowPattern)RawElement.GetCurrentPattern(WindowPattern.Pattern)).Current.CanMinimize;
+        /// <inheritdoc/>
+        public bool Minimizable => ((WindowPattern)this.GetCurrentPattern(WindowPattern.Pattern)).Current.CanMinimize;
 
-        public WindowVisualState VisualState => ((WindowPattern)RawElement.GetCurrentPattern(WindowPattern.Pattern)).Current.WindowVisualState;
+        /// <inheritdoc/>
+        public WindowVisualState VisualState => ((WindowPattern)this.GetCurrentPattern(WindowPattern.Pattern)).Current.WindowVisualState;
 
-        public void Close()
-        {
-            ActionHandler.Perform(() => ((WindowPattern)RawElement.GetCurrentPattern(WindowPattern.Pattern)).Close());
-        }
+        /// <inheritdoc/>
+        public void Close() => ActionHandler.Perform(() => ((WindowPattern)this.GetCurrentPattern(WindowPattern.Pattern)).Close());
 
-        public void Move(double x, double y)
-        {
-            ActionHandler.Perform(() => ((TransformPattern)RawElement.GetCurrentPattern(TransformPattern.Pattern)).Move(x,y));
-        }
+        /// <inheritdoc/>
+        public void Move(double x, double y) => ActionHandler.Perform(() => ((TransformPattern)this.GetCurrentPattern(TransformPattern.Pattern)).Move(x,y));
 
-        public void Resize(double width, double height)
-        {
-            ActionHandler.Perform(() => ((TransformPattern)RawElement.GetCurrentPattern(TransformPattern.Pattern)).Resize(width, height));
-        }
+        /// <inheritdoc/>
+        public void Resize(double width, double height) => ActionHandler.Perform(() => ((TransformPattern)this.GetCurrentPattern(TransformPattern.Pattern)).Resize(width, height));
 
-        public void Rotate(double degrees)
-        {
-            ActionHandler.Perform(() => ((TransformPattern)RawElement.GetCurrentPattern(TransformPattern.Pattern)).Rotate(degrees));
-        }
+        /// <inheritdoc/>
+        public void Rotate(double degrees) => ActionHandler.Perform(() => ((TransformPattern)this.GetCurrentPattern(TransformPattern.Pattern)).Rotate(degrees));
 
-        public void SetDockPosition(DockPosition dockPosition)
-        {
-            ActionHandler.Perform(() => ((DockPattern)RawElement.GetCurrentPattern(DockPattern.Pattern)).SetDockPosition(dockPosition));
-        }
+        /// <inheritdoc/>
+        public void SetDockPosition(DockPosition dockPosition) => ActionHandler.Perform(() => ((DockPattern)this.GetCurrentPattern(DockPattern.Pattern)).SetDockPosition(dockPosition));
 
-        public void SetVisualState(WindowVisualState state)
-        {
-            ActionHandler.Perform(() => ((WindowPattern)RawElement.GetCurrentPattern(WindowPattern.Pattern)).SetWindowVisualState(state));
-        }
+        /// <inheritdoc/>
+        public void SetVisualState(WindowVisualState state) => ActionHandler.Perform(() => ((WindowPattern)this.GetCurrentPattern(WindowPattern.Pattern)).SetWindowVisualState(state));
 
-        public bool WaitForInputIdle(int milliseconds)
-        {
-            return ActionHandler.Perform(() => ((WindowPattern)RawElement.GetCurrentPattern(WindowPattern.Pattern)).WaitForInputIdle(milliseconds));
-        }
+        /// <inheritdoc/>
+        public bool WaitForInputIdle(int milliseconds) => ActionHandler.Perform(() => ((WindowPattern)this.GetCurrentPattern(WindowPattern.Pattern)).WaitForInputIdle(milliseconds));
     }
 }
