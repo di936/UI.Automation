@@ -14,9 +14,9 @@
     public class TreeViewer : IFinder
     {
         /// <summary>
-        /// Gets scope within <see cref="TreeViewer"/> searchs <see cref="AutomationElement"/>s.
+        /// Gets or sets scope within <see cref="TreeViewer"/> searchs <see cref="AutomationElement"/>s.
         /// </summary>
-        public AutomationElement RootElement { get; }
+        public AutomationElement RootElement { get; set; }
 
         /// <summary>
         /// <see cref="TreeWalker"/> mode.

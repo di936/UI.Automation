@@ -118,19 +118,19 @@
         public int ProcessId => RawElement.Current.ProcessId;
 
         /// <inheritdoc/>
-        public T Find<T>() => ActionHandler.Perform(() => new TreeViewer(this.RawElement).Find<T>());
+        public T Find<T>() => ActionHandler.Perform(() => new TreeViewer(this.RawElement).Find<T>(), Timeouts.Find);
 
         /// <inheritdoc/>
-        public T FindById<T>(string id) => ActionHandler.Perform(() => new TreeViewer(this.RawElement).FindById<T>(id));
+        public T FindById<T>(string id) => ActionHandler.Perform(() => new TreeViewer(this.RawElement).FindById<T>(id), Timeouts.Find);
 
         /// <inheritdoc/>
-        public T FindByName<T>(string name) => ActionHandler.Perform(() => new TreeViewer(this.RawElement).FindByName<T>(name));
+        public T FindByName<T>(string name) => ActionHandler.Perform(() => new TreeViewer(this.RawElement).FindByName<T>(name), Timeouts.Find);
 
         /// <inheritdoc/>
-        public List<T> FindAll<T>() => ActionHandler.Perform(() => new TreeViewer(this.RawElement).FindAll<T>());
+        public List<T> FindAll<T>() => ActionHandler.Perform(() => new TreeViewer(this.RawElement).FindAll<T>(), Timeouts.Find);
 
         /// <inheritdoc/>
-        public T FindByWindowHandle<T>(int handle) => ActionHandler.Perform(() => new TreeViewer(this.RawElement).FindByWindowHandle<T>(handle));
+        public T FindByWindowHandle<T>(int handle) => ActionHandler.Perform(() => new TreeViewer(this.RawElement).FindByWindowHandle<T>(handle), Timeouts.Find);
 
         /// <summary>
         /// Gets clickable point for wrapper <see cref="AutomationElement"/> and clicks using WindowsAPI mouse click.
