@@ -103,6 +103,7 @@
         public void SetDefaultWindow(string windowName)
         {
             this.DefaultWindow = ActionHandler.Perform(() => new Window(new TreeViewer(AutomationElement.RootElement).FindByName<Window>(windowName).RawElement), Timeouts.Find);
+            this.CurrentWindow = this.DefaultWindow;
             this.Viewer.RootElement = this.DefaultWindow.RawElement;
         }
     }

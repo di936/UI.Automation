@@ -25,9 +25,9 @@
             if (path.Length > 1)
             {
                 element.Expand();
-                for (var i = 1; i < path.Length; i++)
+                for (var i = 1; i <= path.Length - 1; i++)
                 {
-                    element = new TreeViewer(element.RawElement).FindByName<Menu>(path[i - 1]).FindByName<MenuItem>(path[i]);
+                    element = new TreeViewer(element.RawElement).FindByName<MenuItem>(path[i]);
                     if (i == path.Length - 1)
                     {
                         element.Invoke();
