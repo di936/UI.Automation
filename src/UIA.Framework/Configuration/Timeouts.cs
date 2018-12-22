@@ -16,8 +16,13 @@
         public const int Device = 100;
 
         /// <summary>
-        /// Maximum on any searching <see cref="Viewers.IFinder"/> action.
+        /// Delay before search <see cref="Viewers.IFinder"/> action.
         /// </summary>
         public const int Search = 100;
+
+        /// <summary>
+        /// Maximum on any searching <see cref="Viewers.IFinder"/> action.
+        /// </summary>
+        public const int Find = 15000;
     }
 }

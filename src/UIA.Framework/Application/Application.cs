@@ -26,7 +26,8 @@
         public Application(string name, ViewerMode mode = ViewerMode.RawView)
         {
             this.CurrentWindow = new TreeViewer(AutomationElement.RootElement).FindByName<Window>(name);
-            this.Viewer = new TreeViewer(AutomationElement.FromHandle((IntPtr)CurrentWindow.WindowHandle), mode);
+            this.DefaultWindow = this.CurrentWindow;
+            this.Viewer = new TreeViewer(AutomationElement.FromHandle((IntPtr)this.CurrentWindow.WindowHandle), mode);
         }
 
         /// <summary>
@@ -37,6 +38,7 @@
         public Application(Process process, ViewerMode mode = ViewerMode.RawView)
         {
             this.CurrentWindow = new Window(AutomationElement.FromHandle(process.MainWindowHandle));
+            this.DefaultWindow = this.CurrentWindow;
             this.Viewer = new TreeViewer(AutomationElement.FromHandle(process.MainWindowHandle), mode);
         }
 
@@ -44,6 +46,11 @@
         /// Gets or sets current <see cref="Window"/> instance where objects are searched.
         /// </summary>
         public Window CurrentWindow { get; set; }
+
+        /// <summary>
+        /// Gets or sets default <see cref="Window"/> for <see cref="Application"/>.
+        /// </summary>
+        public Window DefaultWindow { get; set; }
 
         /// <summary>
         /// Gets <see cref="{T}"/> element in current window.
@@ -87,12 +94,17 @@
         /// Sets current window.
         /// </summary>
         /// <param name="windowName">Window name.</param>
-        public void SetCurrentWindow(string windowName) => this.CurrentWindow = ActionHandler.Perform(() => this.Viewer.FindByName<Window>(windowName));
+        public void SetCurrentWindow(string windowName) => this.CurrentWindow = ActionHandler.Perform(() => this.Viewer.FindByName<Window>(windowName), Timeouts.Find);
 
         /// <summary>
-        /// Returns current window to its default value.
+        /// Sets default window.
         /// </summary>
         /// <param name="windowName">Window name.</param>
-        public void SetDefaultWindow() => this.CurrentWindow = ActionHandler.Perform(() => new Window(AutomationElement.FromHandle((IntPtr)this.Viewer.RootElement.Current.NativeWindowHandle)));
+        public void SetDefaultWindow(string windowName)
+        {
+            this.DefaultWindow = ActionHandler.Perform(() => new Window(new TreeViewer(AutomationElement.RootElement).FindByName<Window>(windowName).RawElement), Timeouts.Find);
+            this.CurrentWindow = this.DefaultWindow;
+            this.Viewer.RootElement = this.DefaultWindow.RawElement;
+        }
     }
 }
